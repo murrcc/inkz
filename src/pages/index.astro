@@ -1,5 +1,13 @@
 ---
 import "../styles/base.css";
+import Hero from "../components/Hero.astro";
+import Wedge from "../components/Wedge.astro";
+import Methodology from "../components/Methodology.astro";
+import Whisper from "../components/Whisper.astro";
+import About from "../components/About.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import ScrollIndicator from "../components/ScrollIndicator.astro";
 ---
 
 <!doctype html>
@@ -7,14 +15,20 @@ import "../styles/base.css";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="INKZ runs forensic audits of small-business operations to find where revenue is leaking. Free diagnostic. Bespoke fixes." />
     <title>INKZ — Forensic Audits for Revenue</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
-    <main class="page">
-      <p class="mono" style="margin-top: var(--space-12);">CASE FILE / INKZ-001</p>
-      <h1 style="font-size: var(--type-800); margin-top: var(--space-4);">Forensic Audits for Revenue.</h1>
-      <p style="margin-top: var(--space-6);">If you can read this in Geist with a warm bone background and near-black ink, the design tokens and font stack are wired correctly.</p>
-      <p class="mono" style="margin-top: var(--space-12);">END VERIFICATION STUB</p>
+    <ScrollIndicator />
+    <main>
+      <Hero />
+      <Wedge />
+      <Methodology />
+      <Whisper />
+      <About />
+      <Contact />
+      <Footer />
     </main>
   </body>
 </html>
