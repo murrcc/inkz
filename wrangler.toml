@@ -1,0 +1,11 @@
+name = "inkz-web"
+compatibility_date = "2026-05-01"
+pages_build_output_dir = "./dist"
+
+[[kv_namespaces]]
+binding = "WHISPER_LIMITS"
+id = "REPLACE_WITH_PRODUCTION_KV_ID"
+preview_id = "REPLACE_WITH_PREVIEW_KV_ID"
+
+[vars]
+NODE_ENV = "production"
