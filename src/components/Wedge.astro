@@ -1,5 +1,99 @@
 ---
 ---
-<section id="wedge">
-  <p class="mono">[Wedge placeholder]</p>
+
+<section id="wedge" class="wedge">
+  <hr class="hairline" />
+  <div class="wedge-inner">
+
+    <p class="mono file-marker">02 / THE WEDGE</p>
+
+    <p class="wedge-line">
+      We don't charge to find the <span class="marked">leaks</span>.
+      We charge to fix them.
+    </p>
+
+    <p class="context">
+      INKZ runs forensic audits of small-business operations. Free diagnostic, two to three weeks,
+      no obligation. If we find what we think we will find, we propose a bespoke engagement to fix
+      it. If not, you keep the report.
+    </p>
+
+  </div>
 </section>
+
+<style>
+  .wedge {
+    padding: var(--space-32) var(--space-8);
+  }
+
+  .wedge .hairline {
+    margin-bottom: var(--space-32);
+  }
+
+  .wedge-inner {
+    max-width: var(--max-body-width);
+    margin: 0 auto;
+  }
+
+  .file-marker {
+    color: var(--graphite-soft);
+    margin-bottom: var(--space-12);
+    max-width: none;
+  }
+
+  .wedge-line {
+    font-family: var(--font-mono);
+    font-size: var(--type-900);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-tight);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    max-width: none;
+    margin-bottom: var(--space-12);
+  }
+
+  /* Forensic-red first appearance: marker underline on "leaks".
+     The diagnostic identifies the leaks. This word is the exhibit.
+     4px solid bar, flush under the baseline, no gap.
+     Appears exactly once. Nowhere else in this component. */
+  .marked {
+    text-decoration: underline;
+    text-decoration-color: var(--forensic);
+    text-decoration-thickness: 4px;
+    text-underline-offset: 0.08em;
+  }
+
+  .context {
+    font-family: var(--font-body);
+    font-size: var(--type-400);
+    line-height: var(--leading-relaxed);
+    color: var(--graphite);
+    max-width: 52ch;
+  }
+
+  /* On smaller screens, drop to type-700 so the mono line still breathes */
+  @media (max-width: 900px) {
+    .wedge-line {
+      font-size: var(--type-800);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .wedge {
+      padding: var(--space-24) var(--space-6);
+    }
+
+    .wedge .hairline {
+      margin-bottom: var(--space-24);
+    }
+
+    .wedge-line {
+      font-size: var(--type-700);
+      letter-spacing: -0.01em;
+    }
+
+    .context {
+      font-size: var(--type-300);
+    }
+  }
+</style>
