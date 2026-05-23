@@ -1,5 +1,304 @@
 ---
 ---
-<section id="about">
-  <p class="mono">[About placeholder]</p>
+
+<section id="about" class="about">
+  <hr class="hairline" />
+  <div class="about-inner">
+
+    <p class="mono file-marker">05 / ABOUT</p>
+
+    <h2 class="heading">Anton.</h2>
+
+    <!-- ===== THREE-ACT ORIGIN STORY ===== -->
+    <div class="story">
+
+      <div class="act" data-act="1">
+        <p class="act-marker mono">ACT I / ORIGIN</p>
+        <div class="act-body">
+          <p>
+            I grew up inside the operating room of family businesses involved in
+            over $40 million of exits. Business sales. Land sales. The slow,
+            deliberate construction of wealth, observed from a kitchen table that
+            doubled as a strategy room. I learned how money is actually made
+            before I learned how it was supposed to be made.
+          </p>
+        </div>
+      </div>
+
+      <div class="act" data-act="2">
+        <p class="act-marker mono">ACT II / SCALE</p>
+        <div class="act-body">
+          <p>
+            At a privately-held Australian company that started under $10M annual
+            revenue, I led the operational work that scaled it past $200M a year.
+            The company can't be named publicly. The growth wasn't an accident.
+            It was a sequence of correctly identified leaks, plugged in the right
+            order.
+          </p>
+        </div>
+      </div>
+
+      <div class="act" data-act="3">
+        <p class="act-marker mono">ACT III / THE INSIGHT</p>
+        <div class="act-body">
+          <p>
+            What I see in small Australian businesses now is the same pattern,
+            inverted. Twenty, thirty, forty years of trading. Product-market fit
+            proven by the fact that the business still exists. And yet nobody has
+            ever sat down and asked where the revenue is leaking. There are six-
+            figure opportunities sitting in plain view, on every street, in every
+            strip mall. Nobody is harvesting them.
+          </p>
+          <p class="arc-resolution">That is what INKZ is for.</p>
+        </div>
+      </div>
+
+    </div><!-- /story -->
+
+    <!-- ===== EXHIBITS BLOCK ===== -->
+    <div class="exhibits-divider">
+      <hr class="hairline" />
+      <p class="mono divider-label">// EXHIBITS</p>
+    </div>
+
+    <p class="framing-line">
+      These aren't claims about growth delivered for you. They're proof of proximity to the levers.
+    </p>
+
+    <div class="exhibits">
+
+      <div class="exhibit" data-exhibit="A">
+        <p class="exhibit-index mono">EXHIBIT A</p>
+        <h3 class="exhibit-title">Meta APAC.</h3>
+        <p class="exhibit-body">
+          Direct line to AU / ASIA 2IC at Meta. Singapore office visit. Summit invitations.
+        </p>
+      </div>
+
+      <div class="exhibit" data-exhibit="B">
+        <p class="exhibit-index mono">EXHIBIT B</p>
+        <h3 class="exhibit-title">TikTok Australia.</h3>
+        <p class="exhibit-body">
+          Founding beta tester. Scoped previously-restricted policy use cases. Helped convince
+          board to allow a whitelist program (which subsequently extended to invite-only then
+          application-based).
+        </p>
+      </div>
+
+      <!--
+        FUTURE EXHIBITS: Add additional exhibit blocks here following the pattern below.
+        Copy the template, increment the letter, and fill in title + body copy.
+
+        <div class="exhibit" data-exhibit="C">
+          <p class="exhibit-index mono">EXHIBIT C</p>
+          <h3 class="exhibit-title">Title here.</h3>
+          <p class="exhibit-body">
+            Body copy here. One to three lines. Factual, restrained.
+          </p>
+        </div>
+      -->
+
+      <!-- Placeholder element for future exhibits. Hidden from display, preserves DOM pattern. -->
+      <div class="exhibit" data-exhibit-placeholder aria-hidden="true" hidden></div>
+
+    </div><!-- /exhibits -->
+
+  </div><!-- /about-inner -->
 </section>
+
+<style>
+  .about {
+    padding: var(--space-24) var(--space-8);
+  }
+
+  .about > .hairline {
+    margin-bottom: var(--space-24);
+  }
+
+  .about-inner {
+    max-width: var(--max-body-width);
+    margin: 0 auto;
+  }
+
+  /* ---- File marker ---- */
+  .file-marker {
+    color: var(--graphite-soft);
+    margin-bottom: var(--space-8);
+    max-width: none;
+  }
+
+  /* ---- Section heading ---- */
+  .heading {
+    font-family: var(--font-display);
+    font-weight: var(--weight-bold);
+    font-size: var(--type-600);
+    letter-spacing: -0.02em;
+    line-height: var(--leading-tight);
+    color: var(--ink);
+    margin-bottom: var(--space-16);
+    max-width: none;
+  }
+
+  /* ===== THREE-ACT STORY ===== */
+
+  .story {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: var(--space-16);
+  }
+
+  .act {
+    border-top: 1px solid var(--hairline);
+    padding: var(--space-8) 0;
+  }
+
+  .act:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .act-marker {
+    font-family: var(--font-mono);
+    font-size: var(--type-100);
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.08em;
+    color: var(--graphite-soft);
+    text-transform: uppercase;
+    margin-bottom: var(--space-4);
+    max-width: none;
+  }
+
+  .act-body p {
+    font-family: var(--font-body);
+    font-size: var(--type-300);
+    line-height: var(--leading-relaxed);
+    color: var(--graphite);
+    max-width: var(--measure);
+  }
+
+  .act-body p + p {
+    margin-top: var(--space-4);
+  }
+
+  /* Arc resolution: the final line of the story. Set apart, in ink, slightly larger.
+     Not a marketing punchline. Just the end of the argument. */
+  .arc-resolution {
+    font-family: var(--font-body);
+    font-size: var(--type-500);
+    font-weight: var(--weight-semibold);
+    letter-spacing: -0.02em;
+    line-height: var(--leading-snug);
+    color: var(--ink);
+    margin-top: var(--space-8);
+    max-width: var(--measure);
+  }
+
+  /* ===== EXHIBITS ===== */
+
+  .exhibits-divider {
+    margin-bottom: var(--space-8);
+  }
+
+  .exhibits-divider .hairline {
+    margin-bottom: var(--space-4);
+  }
+
+  .divider-label {
+    font-family: var(--font-mono);
+    font-size: var(--type-100);
+    letter-spacing: 0.08em;
+    color: var(--graphite-soft);
+    max-width: none;
+  }
+
+  /* Framing line: restrained italic, slightly larger than body. Not a headline. */
+  .framing-line {
+    font-family: var(--font-body);
+    font-size: var(--type-400);
+    font-style: italic;
+    line-height: var(--leading-relaxed);
+    color: var(--graphite);
+    max-width: var(--measure);
+    margin-bottom: var(--space-12);
+  }
+
+  /* Exhibits: document evidence blocks. Numbered, hairline-separated. No chrome. */
+  .exhibits {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .exhibit {
+    border-top: 1px solid var(--hairline);
+    padding: var(--space-6) 0 var(--space-8);
+  }
+
+  .exhibit:last-of-type {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  /* Hide the placeholder div from the border logic */
+  .exhibit[data-exhibit-placeholder] {
+    display: none;
+  }
+
+  .exhibit-index {
+    font-family: var(--font-mono);
+    font-size: var(--type-100);
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.08em;
+    color: var(--graphite-soft);
+    text-transform: uppercase;
+    margin-bottom: var(--space-3);
+    max-width: none;
+  }
+
+  .exhibit-title {
+    font-family: var(--font-display);
+    font-weight: var(--weight-semibold);
+    font-size: var(--type-400);
+    letter-spacing: -0.02em;
+    line-height: var(--leading-snug);
+    color: var(--ink);
+    margin-bottom: var(--space-3);
+  }
+
+  .exhibit-body {
+    font-family: var(--font-body);
+    font-size: var(--type-300);
+    line-height: var(--leading-relaxed);
+    color: var(--graphite);
+    max-width: var(--measure);
+  }
+
+  /* ===== RESPONSIVE ===== */
+
+  @media (max-width: 720px) {
+    .about {
+      padding: var(--space-16) var(--space-6);
+    }
+
+    .about > .hairline {
+      margin-bottom: var(--space-16);
+    }
+
+    .heading {
+      font-size: var(--type-500);
+      margin-bottom: var(--space-12);
+    }
+
+    .story {
+      margin-bottom: var(--space-12);
+    }
+
+    .arc-resolution {
+      font-size: var(--type-400);
+    }
+
+    .framing-line {
+      font-size: var(--type-300);
+      margin-bottom: var(--space-8);
+    }
+  }
+</style>
