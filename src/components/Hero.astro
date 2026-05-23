@@ -180,6 +180,10 @@
     }
 
     .hero-title {
+      /* Override clamp() minimum: at 600px and below, clamp's min (--type-800 = 3.951rem ≈ 63px)
+         is too large for narrow viewports. Dropping to --type-700 (2.963rem ≈ 47px) keeps the
+         title legible without overflowing at 320px. */
+      font-size: var(--type-700);
       margin-bottom: var(--space-6);
     }
 

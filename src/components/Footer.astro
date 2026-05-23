@@ -99,6 +99,10 @@ const year = new Date().getFullYear();
 
   .legal a {
     color: inherit;
+    /* Expand tap area without visual change. The negative margin compensates for the
+       added padding so the layout flow is unaffected. */
+    padding: var(--space-3) 0;
+    margin: calc(-1 * var(--space-3)) 0;
   }
 
   @media (max-width: 720px) {

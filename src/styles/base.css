@@ -16,6 +16,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
+  /* Prevent anchor targets from landing flush against the top edge.
+     The mobile progress bar is 2px but 16px gives comfortable breathing room. */
+  scroll-padding-top: 16px;
 }
 
 body {
