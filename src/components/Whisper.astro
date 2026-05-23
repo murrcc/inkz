@@ -1,5 +1,791 @@
 ---
 ---
-<section id="whisper">
-  <p class="mono">[Whisper placeholder]</p>
+
+<!-- ===== INLINE SECTION ===== -->
+<section id="whisper" class="whisper">
+  <hr class="hairline" />
+  <div class="whisper-inner">
+
+    <p class="mono file-marker">04 / PRELIMINARY STATEMENT</p>
+
+    <h2 class="heading">Preliminary Statement.</h2>
+
+    <p class="framing">
+      Before we look at your books, an early read of what we suspect. Eight questions,
+      ninety seconds, one preliminary statement signed by Anton. You decide whether
+      it is worth a conversation.
+    </p>
+
+    <button
+      class="btn-hairline"
+      type="button"
+      data-action="open-whisper"
+      aria-haspopup="dialog"
+    >
+      FILE A PRELIMINARY STATEMENT &rarr;
+    </button>
+
+  </div>
 </section>
+
+<!-- ===== MODAL ===== -->
+<div
+  id="whisper-modal"
+  class="modal-backdrop"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-heading"
+  data-open="false"
+>
+  <div class="modal-body">
+
+    <!-- Modal header row -->
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <p class="mono modal-tag">STATEMENT INTAKE / DRAFT</p>
+        <p class="mono modal-ref">INKZ-001/PRELIM</p>
+      </div>
+      <button
+        id="whisper-close"
+        class="btn-hairline btn-sm"
+        type="button"
+        data-action="close-whisper"
+      >
+        [X] DISCARD STATEMENT
+      </button>
+    </div>
+
+    <h2 id="modal-heading" class="modal-heading">Statement Intake.</h2>
+
+    <p class="modal-instructions">
+      Answer what you can. Skip the last question if needed. Submission will
+      return a one-paragraph preliminary finding.
+    </p>
+
+    <!-- ===== THE FORM ===== -->
+    <form id="whisper-form" novalidate>
+
+      <div class="field-group">
+        <label for="q-what-business">
+          <span class="mono field-index">01 /</span>
+          <span class="field-question">What does your business do, in one line?</span>
+        </label>
+        <textarea
+          id="q-what-business"
+          name="what_business"
+          required
+          maxlength="500"
+          rows="3"
+        ></textarea>
+        <p class="mono field-error" aria-live="polite"></p>
+      </div>
+
+      <div class="field-group">
+        <label for="q-years-trading">
+          <span class="mono field-index">02 /</span>
+          <span class="field-question">How many years have you been trading?</span>
+        </label>
+        <input
+          type="text"
+          id="q-years-trading"
+          name="years_trading"
+          required
+          maxlength="500"
+        />
+        <p class="mono field-error" aria-live="polite"></p>
+      </div>
+
+      <div class="field-group">
+        <label for="q-customer-count">
+          <span class="mono field-index">03 /</span>
+          <span class="field-question">Roughly how many customers, patients, or clients on the books?</span>
+        </label>
+        <input
+          type="text"
+          id="q-customer-count"
+          name="customer_count"
+          required
+          maxlength="500"
+        />
+        <p class="mono field-error" aria-live="polite"></p>
+      </div>
+
+      <div class="field-group">
+        <label for="q-recall-system">
+          <span class="mono field-index">04 /</span>
+          <span class="field-question">Do you have an automated system that brings them back, or is it word-of-mouth?</span>
+        </label>
+        <textarea
+          id="q-recall-system"
+          name="recall_system"
+          required
+          maxlength="500"
+          rows="3"
+        ></textarea>
+        <p class="mono field-error" aria-live="polite"></p>
+      </div>
+
+      <div class="field-group">
+        <label for="q-revenue-band">
+          <span class="mono field-index">05 /</span>
+          <span class="field-question">What is your rough annual revenue band?</span>
+        </label>
+        <select id="q-revenue-band" name="revenue_band" required>
+          <option value="">Select a range</option>
+          <option value="sub-100k">&lt; $100k</option>
+          <option value="100k-500k">$100k to $500k</option>
+          <option value="500k-2m">$500k to $2M</option>
+          <option value="2m-10m">$2M to $10M</option>
+          <option value="10m-plus">$10M+</option>
+        </select>
+        <p class="mono field-error" aria-live="polite"></p>
+      </div>
+
+      <div class="field-group">
+        <label for="q-new-customer-source">
+          <span class="mono field-index">06 /</span>
+          <span class="field-question">Where do most new customers come from?</span>
+        </label>
+        <select id="q-new-customer-source" name="new_customer_source" required>
+          <option value="">Select a source</option>
+          <option value="referral">Referral</option>
+          <option value="walk-by">Walk-by</option>
+          <option value="google">Google</option>
+          <option value="ads">Ads</option>
+          <option value="repeat">Repeat</option>
+          <option value="no-idea">No idea</option>
+        </select>
+        <p class="mono field-error" aria-live="polite"></p>
+      </div>
+
+      <div class="field-group">
+        <label for="q-biggest-pain">
+          <span class="mono field-index">07 /</span>
+          <span class="field-question">What is the single biggest pain point in operations right now?</span>
+        </label>
+        <textarea
+          id="q-biggest-pain"
+          name="biggest_pain"
+          required
+          maxlength="500"
+          rows="3"
+        ></textarea>
+        <p class="mono field-error" aria-live="polite"></p>
+      </div>
+
+      <div class="field-group">
+        <label for="q-anything-else">
+          <span class="mono field-index">08 /</span>
+          <span class="field-question">Anything else worth knowing?</span>
+          <span class="mono field-optional">(optional)</span>
+        </label>
+        <textarea
+          id="q-anything-else"
+          name="anything_else"
+          maxlength="500"
+          rows="3"
+        ></textarea>
+        <p class="mono field-error" aria-live="polite"></p>
+      </div>
+
+      <div class="form-footer">
+        <button type="submit" class="btn-hairline btn-submit">
+          ISSUE PRELIMINARY FINDING &rarr;
+        </button>
+      </div>
+
+    </form>
+
+    <!-- ===== PROCESSING STATE ===== -->
+    <div id="whisper-processing" class="processing-state" aria-live="polite">
+      <p class="mono processing-label">FILE PROCESSING</p>
+    </div>
+
+    <!-- ===== RESPONSE AREA ===== -->
+    <div id="whisper-response" class="response-area" aria-live="polite">
+      <div class="response-body">
+        <pre id="whisper-response-text" class="response-text"></pre>
+        <p id="whisper-response-signature" class="response-signature"></p>
+      </div>
+      <div class="response-actions">
+        <button type="button" class="btn-hairline btn-sm" id="whisper-reset">
+          FILE NEW STATEMENT
+        </button>
+        <button type="button" class="btn-text mono" id="whisper-close-bottom" data-action="close-whisper">
+          CLOSE
+        </button>
+      </div>
+    </div>
+
+  </div><!-- /modal-body -->
+</div><!-- /modal-backdrop -->
+
+<style>
+  /* ===== INLINE SECTION ===== */
+
+  .whisper {
+    padding: var(--space-24) var(--space-8);
+  }
+
+  .whisper .hairline {
+    margin-bottom: var(--space-24);
+  }
+
+  .whisper-inner {
+    max-width: var(--max-body-width);
+    margin: 0 auto;
+  }
+
+  .file-marker {
+    color: var(--graphite-soft);
+    margin-bottom: var(--space-8);
+    max-width: none;
+  }
+
+  .heading {
+    font-family: var(--font-display);
+    font-weight: var(--weight-bold);
+    font-size: var(--type-600);
+    letter-spacing: -0.02em;
+    line-height: var(--leading-tight);
+    color: var(--ink);
+    margin-bottom: var(--space-6);
+    max-width: none;
+  }
+
+  .framing {
+    font-family: var(--font-body);
+    font-size: var(--type-300);
+    line-height: var(--leading-relaxed);
+    color: var(--graphite);
+    max-width: 56ch;
+    margin-bottom: var(--space-8);
+  }
+
+  /* ===== SHARED BUTTON STYLE ===== */
+
+  .btn-hairline {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--type-100);
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--ink);
+    padding: var(--space-3) var(--space-6);
+    cursor: pointer;
+    transition: background 0.15s var(--ease-out-quart), color 0.15s var(--ease-out-quart);
+    text-decoration: none;
+  }
+
+  .btn-hairline:hover,
+  .btn-hairline:focus-visible {
+    background: var(--ink);
+    color: var(--bone);
+    outline: none;
+  }
+
+  .btn-hairline:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  .btn-sm {
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .btn-text {
+    background: none;
+    border: none;
+    color: var(--graphite);
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: var(--type-100);
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    padding: 0;
+    transition: color 0.15s var(--ease-out-quart);
+  }
+
+  .btn-text:hover,
+  .btn-text:focus-visible {
+    color: var(--ink);
+    outline: none;
+  }
+
+  .btn-text:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  /* ===== MODAL BACKDROP ===== */
+
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: var(--bone);
+    z-index: 1000;
+    overflow-y: auto;
+    display: none;
+  }
+
+  .modal-backdrop[data-open="true"] {
+    display: block;
+  }
+
+  /* ===== MODAL BODY ===== */
+
+  .modal-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--space-8);
+    padding-bottom: var(--space-24);
+  }
+
+  /* ===== MODAL HEADER ===== */
+
+  .modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+    padding-top: var(--space-8);
+  }
+
+  .modal-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .modal-tag {
+    color: var(--graphite);
+    max-width: none;
+  }
+
+  .modal-ref {
+    color: var(--graphite-soft);
+    max-width: none;
+  }
+
+  /* ===== MODAL CONTENT ===== */
+
+  .modal-heading {
+    font-family: var(--font-display);
+    font-weight: var(--weight-bold);
+    font-size: var(--type-600);
+    letter-spacing: -0.02em;
+    line-height: var(--leading-tight);
+    color: var(--ink);
+    margin-bottom: var(--space-4);
+    max-width: none;
+  }
+
+  .modal-instructions {
+    font-family: var(--font-body);
+    font-size: var(--type-300);
+    line-height: var(--leading-relaxed);
+    color: var(--graphite);
+    max-width: 56ch;
+    margin-bottom: var(--space-12);
+  }
+
+  /* ===== FORM ===== */
+
+  .field-group {
+    margin-bottom: var(--space-8);
+  }
+
+  .field-group label {
+    display: block;
+    margin-bottom: var(--space-3);
+    line-height: var(--leading-snug);
+  }
+
+  .field-index {
+    font-family: var(--font-mono);
+    font-size: var(--type-100);
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.06em;
+    color: var(--graphite-soft);
+    margin-right: var(--space-2);
+  }
+
+  .field-question {
+    font-family: var(--font-body);
+    font-size: var(--type-300);
+    font-weight: var(--weight-semibold);
+    color: var(--ink);
+  }
+
+  .field-optional {
+    font-family: var(--font-mono);
+    font-size: var(--type-100);
+    font-weight: var(--weight-regular);
+    letter-spacing: 0.04em;
+    color: var(--graphite-soft);
+    margin-left: var(--space-2);
+  }
+
+  /* Input / textarea / select base */
+  .field-group input,
+  .field-group textarea,
+  .field-group select {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--hairline);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: var(--type-300);
+    line-height: var(--leading-relaxed);
+    padding: var(--space-3) var(--space-4);
+    appearance: none;
+    transition: border-color 0.12s var(--ease-out-quart);
+  }
+
+  .field-group input:focus,
+  .field-group textarea:focus,
+  .field-group select:focus {
+    outline: none;
+    border-color: var(--ink);
+  }
+
+  .field-group textarea {
+    min-height: 4em;
+    resize: vertical;
+  }
+
+  .field-group select {
+    cursor: pointer;
+    background-image: none;
+  }
+
+  /* Select arrow workaround: no browser default arrow */
+  .field-group select option {
+    background: var(--bone);
+    color: var(--ink);
+  }
+
+  /* Validation error state */
+  .field-group.has-error input,
+  .field-group.has-error textarea,
+  .field-group.has-error select {
+    border-color: var(--forensic);
+  }
+
+  .field-error {
+    color: var(--forensic);
+    font-family: var(--font-mono);
+    font-size: var(--type-100);
+    letter-spacing: 0.04em;
+    margin-top: var(--space-1);
+    min-height: 1.2em;
+    max-width: none;
+  }
+
+  .form-footer {
+    padding-top: var(--space-4);
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btn-submit {
+    padding: var(--space-3) var(--space-8);
+  }
+
+  /* ===== PROCESSING STATE ===== */
+
+  .processing-state {
+    display: none;
+    padding: var(--space-24) 0;
+    text-align: center;
+  }
+
+  .processing-label {
+    color: var(--graphite);
+    max-width: none;
+    font-size: var(--type-200);
+    letter-spacing: 0.08em;
+    animation: pulse-opacity 1s ease-in-out infinite;
+  }
+
+  @keyframes pulse-opacity {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ===== RESPONSE AREA ===== */
+
+  .response-area {
+    display: none;
+    padding-top: var(--space-4);
+  }
+
+  .response-body {
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    padding: var(--space-8) 0;
+    margin-bottom: var(--space-8);
+  }
+
+  .response-text {
+    font-family: var(--font-mono);
+    font-size: var(--type-300);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-width: 62ch;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: var(--space-4);
+  }
+
+  .response-signature {
+    font-family: var(--font-mono);
+    font-size: var(--type-300);
+    font-style: italic;
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+    padding-left: var(--space-8);
+    max-width: none;
+  }
+
+  .response-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  /* ===== RESPONSIVE ===== */
+
+  @media (max-width: 720px) {
+    .whisper {
+      padding: var(--space-16) var(--space-6);
+    }
+
+    .whisper .hairline {
+      margin-bottom: var(--space-16);
+    }
+
+    .heading {
+      font-size: var(--type-500);
+    }
+
+    .modal-body {
+      padding: var(--space-6);
+      padding-bottom: var(--space-16);
+    }
+
+    .modal-header {
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+      padding-top: var(--space-6);
+    }
+
+    .modal-heading {
+      font-size: var(--type-500);
+    }
+
+    .form-footer {
+      justify-content: stretch;
+    }
+
+    .btn-submit {
+      width: 100%;
+      text-align: center;
+    }
+
+    .response-signature {
+      padding-left: var(--space-4);
+    }
+
+    .response-actions {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-4);
+    }
+  }
+
+  /* ===== REDUCED MOTION ===== */
+
+  @media (prefers-reduced-motion: reduce) {
+    .processing-label {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const modal = document.getElementById('whisper-modal');
+    const form = document.getElementById('whisper-form');
+    const processing = document.getElementById('whisper-processing');
+    const responseEl = document.getElementById('whisper-response');
+    const responseText = document.getElementById('whisper-response-text');
+    const responseSignature = document.getElementById('whisper-response-signature');
+    const openTrigger = document.querySelector('[data-action="open-whisper"]');
+    const closeButtons = document.querySelectorAll('[data-action="close-whisper"]');
+    const resetBtn = document.getElementById('whisper-reset');
+
+    const MOCK_BODY = `The single most likely leak in your business sits in the recall layer. For an operation your size and age, somewhere between $40k and $80k a year walks past you because the customers who already bought from you once are not being reminded to come back. We'd need access to your data to confirm. Email anton@inkz.io to proceed.`;
+    const MOCK_SIGNATURE = `Anton, Principal, INKZ.`;
+
+    let previouslyFocused = null;
+
+    function openModal() {
+      previouslyFocused = document.activeElement;
+      modal.setAttribute('data-open', 'true');
+      // Trap focus to first input
+      const firstInput = modal.querySelector('input, textarea, select, button');
+      if (firstInput) firstInput.focus();
+      // Prevent body scroll
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.setAttribute('data-open', 'false');
+      document.body.style.overflow = '';
+      if (previouslyFocused) previouslyFocused.focus();
+    }
+
+    function resetModal() {
+      form.style.display = '';
+      processing.style.display = 'none';
+      responseEl.style.display = 'none';
+      responseText.textContent = '';
+      responseSignature.textContent = '';
+      // Clear validation state
+      form.querySelectorAll('.field-group').forEach(group => {
+        group.classList.remove('has-error');
+        const err = group.querySelector('.field-error');
+        if (err) err.textContent = '';
+      });
+      form.reset();
+      // Focus first input
+      const firstInput = form.querySelector('input, textarea, select');
+      if (firstInput) firstInput.focus();
+    }
+
+    function validateForm() {
+      let valid = true;
+      const requiredFields = form.querySelectorAll('[required]');
+      requiredFields.forEach(field => {
+        const group = field.closest('.field-group');
+        const err = group ? group.querySelector('.field-error') : null;
+        const isEmpty = field.value.trim() === '' || (field.tagName === 'SELECT' && field.value === '');
+        if (isEmpty) {
+          valid = false;
+          if (group) group.classList.add('has-error');
+          if (err) err.textContent = '// REQUIRED';
+        } else {
+          if (group) group.classList.remove('has-error');
+          if (err) err.textContent = '';
+        }
+      });
+      // Focus first error
+      if (!valid) {
+        const firstError = form.querySelector('.field-group.has-error input, .field-group.has-error textarea, .field-group.has-error select');
+        if (firstError) firstError.focus();
+      }
+      return valid;
+    }
+
+    async function typewriterReveal(el, text, delayMs) {
+      el.textContent = '';
+      for (let i = 0; i < text.length; i++) {
+        el.textContent += text[i];
+        await new Promise(r => setTimeout(r, delayMs));
+      }
+    }
+
+    // ---- Event: open modal ----
+    if (openTrigger) {
+      openTrigger.addEventListener('click', openModal);
+    }
+
+    // ---- Event: close modal ----
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', closeModal);
+    });
+
+    // ---- Event: ESC closes modal ----
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.getAttribute('data-open') === 'true') {
+        closeModal();
+      }
+    });
+
+    // ---- Event: reset ----
+    if (resetBtn) {
+      resetBtn.addEventListener('click', resetModal);
+    }
+
+    // ---- Event: form submit ----
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if (!validateForm()) return;
+
+        // Hide form, show processing
+        form.style.display = 'none';
+        processing.style.display = 'block';
+
+        // Mock 2-second delay
+        await new Promise(r => setTimeout(r, 2000));
+
+        // Hide processing, show response
+        processing.style.display = 'none';
+        responseEl.style.display = 'block';
+        responseText.textContent = '';
+        responseSignature.textContent = '';
+
+        // Check reduced motion preference
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const delay = reducedMotion ? 0 : 25;
+
+        await typewriterReveal(responseText, MOCK_BODY, delay);
+        // Small pause then signature
+        await new Promise(r => setTimeout(r, reducedMotion ? 0 : 200));
+        await typewriterReveal(responseSignature, MOCK_SIGNATURE, delay);
+      });
+    }
+
+    // ---- Clear field error on input ----
+    if (form) {
+      form.addEventListener('input', (e) => {
+        const field = e.target;
+        const group = field.closest('.field-group');
+        if (!group) return;
+        const err = group.querySelector('.field-error');
+        if (field.value.trim() !== '') {
+          group.classList.remove('has-error');
+          if (err) err.textContent = '';
+        }
+      });
+      form.addEventListener('change', (e) => {
+        const field = e.target;
+        const group = field.closest('.field-group');
+        if (!group) return;
+        const err = group.querySelector('.field-error');
+        if (field.tagName === 'SELECT' && field.value !== '') {
+          group.classList.remove('has-error');
+          if (err) err.textContent = '';
+        }
+      });
+    }
+  })();
+</script>
