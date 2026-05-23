@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.98.0",
-    "@astrojs/cloudflare": "^13.5.4",
     "astro": "^6.3.7",
     "motion": "^12.40.0"
   },
