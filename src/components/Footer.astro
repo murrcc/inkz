@@ -12,7 +12,7 @@ const year = new Date().getFullYear();
     </div>
 
     <div class="meta">
-      <p class="principal mono">
+      <p class="principal">
         Principal: Anton <span class="redacted" aria-label="surname redacted">MURC</span>
       </p>
       <p class="legal mono">
@@ -72,6 +72,9 @@ const year = new Date().getFullYear();
   }
 
   .principal {
+    font-family: var(--font-mono);
+    font-size: var(--type-200);
+    letter-spacing: 0.04em;
     color: var(--graphite);
   }
 
