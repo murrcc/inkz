@@ -1,5 +1,190 @@
 ---
 ---
-<section id="hero">
-  <p class="mono">[Hero placeholder]</p>
+
+<section id="hero" class="hero" aria-label="INKZ - Forensic Audits for Revenue">
+
+  <!-- TOP-LEFT: Primary case-file stamp.
+       Decision: forensic-red. The case file opens in red ink — first appearance
+       of the forensic accent on the page, before the wedge confirms it. Slightly
+       larger than other page file markers (--type-200 vs --type-100) to mark this
+       as THE primary document identifier. -->
+  <p class="hero-stamp mono" aria-label="Case file INKZ-001">CASE FILE / INKZ-001</p>
+
+  <!-- MAIN CONTENT: title + subtitle stack -->
+  <div class="hero-body">
+
+    <!-- Display title. The brand-identity string. Em-dash is permitted here —
+         this is the brand mark itself, not body copy. Same string in <title>. -->
+    <h1 class="hero-title">
+      INKZ&thinsp;&mdash;&thinsp;Forensic Audits<br>for Revenue.
+    </h1>
+
+    <!-- Subtitle: frames the problem. The wedge below resolves the offer.
+         Distinct copy so Hero introduces, Wedge resolves (no redundancy).
+         Subtitle-line wraps the copy; subtitle-redaction is the Phase 4
+         overlay that clips away to reveal text. Static: overlay is opacity:0. -->
+    <p class="hero-subtitle">
+      <span class="subtitle-line">
+        <span class="subtitle-redaction" aria-hidden="true"></span>We find where the revenue is leaking.
+      </span>
+    </p>
+
+  </div><!-- /hero-body -->
+
+  <!-- BOTTOM-LEFT: Document-origin caption. Geographic + temporal grounding. -->
+  <p class="hero-caption mono">// CAIRNS / AUSTRALIA / 2026</p>
+
+  <!-- BOTTOM-RIGHT: Page number — section 01 of 07. -->
+  <p class="hero-page-number mono" aria-label="Section 01 of 07">01 / 07</p>
+
 </section>
+
+<style>
+  /* ===== HERO SHELL ===== */
+
+  /* Full-bleed section. 88vh: leaves a deliberate peek of the wedge below —
+     the eye sees there is more before scrolling. Bone background for static
+     state (Phase 4 will open on ink and transition to bone).
+
+     Grid: 3 rows.
+       Row 1: stamp (auto height)
+       Row 2: body content — title + subtitle (fills remaining space, centred)
+       Row 3: bottom strip — caption left, page number right (auto height)
+     2 columns: 1fr left, auto right (for the page number to hug the edge). */
+
+  .hero {
+    position: relative;
+    min-height: 88vh;
+    background: var(--bone);
+    padding: var(--space-12) var(--space-16) var(--space-16);
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr auto;
+    row-gap: 0;
+    column-gap: var(--space-8);
+  }
+
+  /* ===== ROW 1: CASE FILE STAMP ===== */
+
+  /* forensic-red: deliberate, documented. See comment in HTML above. */
+  .hero-stamp {
+    grid-row: 1;
+    grid-column: 1 / -1;
+    font-size: var(--type-200);
+    letter-spacing: 0.08em;
+    color: var(--forensic);
+    padding-bottom: var(--space-16);
+    max-width: none;
+  }
+
+  /* ===== ROW 2: TITLE + SUBTITLE ===== */
+
+  .hero-body {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: var(--space-16);
+  }
+
+  /* HUGE. The page-defining moment.
+     Clamp: minimum --type-800 (3.951rem), fluid 8vw, cap 5.5rem.
+     At 494px viewport width, 8vw = ~39.5px ≈ --type-800.
+     At 1280px, 8vw = ~102px but capped at 5.5rem = 88px. */
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: var(--weight-bold);
+    font-size: clamp(var(--type-800), 8vw, 5.5rem);
+    line-height: var(--leading-tight);
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: var(--space-8);
+    max-width: none;
+  }
+
+  /* Subtitle: clearly secondary. Graphite, not ink. Smaller than title.
+     Position-relative container for Phase 4 motion. */
+  .hero-subtitle {
+    margin: 0;
+    max-width: none;
+  }
+
+  /* The subtitle text node. Position:relative so the overlay sits on top. */
+  .subtitle-line {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: var(--weight-regular);
+    font-size: var(--type-400);
+    line-height: var(--leading-snug);
+    letter-spacing: -0.01em;
+    color: var(--graphite);
+  }
+
+  /* Phase 4 redaction overlay. Absolutely positioned over the subtitle text.
+     Static state: opacity:0 — text is fully visible.
+     Phase 4 motion: opacity set to 1, then clip-path animated
+     from inset(0 0% 0 0) to inset(0 100% 0 0) to sweep the block off. */
+  .subtitle-redaction {
+    position: absolute;
+    inset: -0.1em -0.15em;
+    background: var(--ink);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* ===== ROW 3: BOTTOM STRIP ===== */
+
+  /* Caption: bottom-left, geographic provenance. */
+  .hero-caption {
+    grid-row: 3;
+    grid-column: 1;
+    font-size: var(--type-100);
+    letter-spacing: 0.06em;
+    color: var(--graphite-soft);
+    align-self: end;
+    max-width: none;
+  }
+
+  /* Page number: bottom-right. Right-aligned to mirror page-corner file markers. */
+  .hero-page-number {
+    grid-row: 3;
+    grid-column: 2;
+    font-size: var(--type-100);
+    letter-spacing: 0.06em;
+    color: var(--graphite-soft);
+    text-align: right;
+    align-self: end;
+    max-width: none;
+    white-space: nowrap;
+  }
+
+  /* ===== RESPONSIVE ===== */
+
+  @media (max-width: 900px) {
+    .hero {
+      padding: var(--space-12) var(--space-12) var(--space-12);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      min-height: 92vh;
+      padding: var(--space-8) var(--space-6) var(--space-8);
+    }
+
+    .hero-stamp {
+      padding-bottom: var(--space-12);
+    }
+
+    .hero-title {
+      margin-bottom: var(--space-6);
+    }
+
+    .subtitle-line {
+      font-size: var(--type-300);
+    }
+  }
+</style>
