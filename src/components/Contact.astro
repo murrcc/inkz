@@ -1,5 +1,112 @@
 ---
 ---
-<section id="contact">
-  <p class="mono">[Contact placeholder]</p>
+
+<section id="contact" class="contact">
+  <hr class="hairline" />
+  <div class="contact-inner">
+
+    <p class="mono file-marker">06 / CONTACT</p>
+
+    <h2 class="heading">Make contact.</h2>
+
+    <a href="mailto:anton@inkz.io" class="email-hero">anton@inkz.io</a>
+
+    <p class="location mono">Cairns, QLD, Australia.</p>
+
+    <div class="closing-block">
+      <p class="closing-copy">If you're reading this after meeting Anton, book the coffee. If you're not, file a preliminary statement above.</p>
+    </div>
+
+  </div>
 </section>
+
+<style>
+  .contact {
+    padding: var(--space-24) var(--space-8);
+  }
+
+  .contact .hairline {
+    margin-bottom: var(--space-24);
+  }
+
+  .contact-inner {
+    max-width: var(--max-body-width);
+    margin: 0 auto;
+  }
+
+  .file-marker {
+    color: var(--graphite-soft);
+    margin-bottom: var(--space-8);
+    max-width: none;
+  }
+
+  .heading {
+    font-family: var(--font-display);
+    font-weight: var(--weight-bold);
+    font-size: var(--type-600);
+    letter-spacing: -0.02em;
+    line-height: var(--leading-tight);
+    color: var(--ink);
+    margin-bottom: var(--space-8);
+    max-width: none;
+  }
+
+  .email-hero {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: var(--weight-bold);
+    font-size: var(--type-700);
+    letter-spacing: -0.02em;
+    line-height: var(--leading-tight);
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+    cursor: pointer;
+    margin-bottom: var(--space-6);
+  }
+
+  .email-hero:hover {
+    color: var(--graphite);
+  }
+
+  .location {
+    color: var(--graphite-soft);
+    margin-bottom: var(--space-16);
+    max-width: none;
+  }
+
+  .closing-block {
+    background: var(--ink);
+    padding: var(--space-6) var(--space-8);
+    max-width: 52ch;
+  }
+
+  .closing-copy {
+    font-family: var(--font-mono);
+    font-size: var(--type-100);
+    letter-spacing: 0.04em;
+    line-height: var(--leading-relaxed);
+    color: var(--bone);
+    max-width: none;
+  }
+
+  @media (max-width: 720px) {
+    .contact {
+      padding: var(--space-16) var(--space-6);
+    }
+
+    .contact .hairline {
+      margin-bottom: var(--space-16);
+    }
+
+    .email-hero {
+      font-size: var(--type-600);
+    }
+
+    .closing-block {
+      max-width: none;
+      padding: var(--space-6);
+    }
+  }
+</style>
