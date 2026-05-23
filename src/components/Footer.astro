@@ -1,5 +1,115 @@
 ---
+const year = new Date().getFullYear();
 ---
-<section id="footer">
-  <p class="mono">[Footer placeholder]</p>
-</section>
+
+<footer class="footer">
+  <hr class="hairline" />
+  <div class="footer-inner">
+
+    <div class="brand">
+      <p class="wordmark">INKZ</p>
+      <p class="tagline">Forensic audits for small-business revenue. Free diagnostic. Bespoke fixes.</p>
+    </div>
+
+    <div class="meta">
+      <p class="principal mono">
+        Principal: Anton <span class="redacted" aria-label="surname redacted">MURC</span>
+      </p>
+      <p class="legal mono">
+        <span>{year} INKZ</span>
+        <span aria-hidden="true">·</span>
+        <a href="/privacy">privacy</a>
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: var(--space-16) var(--space-8) var(--space-12);
+    color: var(--graphite);
+  }
+
+  .footer .hairline {
+    margin-bottom: var(--space-16);
+  }
+
+  .footer-inner {
+    max-width: var(--max-body-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-12);
+    align-items: end;
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: var(--weight-bold);
+    font-size: var(--type-700);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: var(--leading-tight);
+    max-width: none;
+  }
+
+  .tagline {
+    margin-top: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--type-100);
+    letter-spacing: 0.04em;
+    color: var(--graphite);
+    max-width: 42ch;
+    line-height: var(--leading-relaxed);
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    text-align: right;
+  }
+
+  .principal {
+    color: var(--graphite);
+  }
+
+  .redacted {
+    display: inline-block;
+    color: transparent;
+    background: var(--forensic);
+    padding: 0 0.18em;
+    border-radius: 0;
+    user-select: none;
+    line-height: 1.2;
+    vertical-align: middle;
+  }
+
+  .legal {
+    color: var(--graphite-soft);
+    display: flex;
+    gap: var(--space-2);
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .legal a {
+    color: inherit;
+  }
+
+  @media (max-width: 720px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .meta {
+      text-align: left;
+    }
+
+    .legal {
+      justify-content: flex-start;
+    }
+  }
+</style>
