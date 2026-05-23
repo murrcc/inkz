@@ -32,8 +32,8 @@ OKLCH only. Every neutral tinted toward the brand hue (cool-cast greys, warm-cas
 
 | Role         | Family             | Notes                                                   |
 |--------------|--------------------|---------------------------------------------------------|
-| Display + body | **Söhne** (Test license for dev; production license required before launch) | Flat, confident, document-authoritative. Weights: 400, 600, 700. |
-| Mono         | **IBM Plex Mono**  | Evidence tags, file headers, page numbers, timestamps. Weights: 400, 500. |
+| Display + body | **Geist** (Vercel, OFL license — free, self-hosted) | Variable font, all weights in a single file. Flat, technical, document-authoritative without consulting-cliché. Weights used: 400, 600, 700. |
+| Mono         | **IBM Plex Mono**  | Evidence tags, file headers, page numbers, timestamps. Weights: 400, 500. The IBM Plex archive/typewriter feel pairs against Geist's clean modernity for the Forensic Document contrast. |
 
 **No serifs in v1.** Serifs are the AI-design reflex for premium consulting.
 
