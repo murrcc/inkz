@@ -7,7 +7,7 @@
   --bone: oklch(0.96 0.005 80);
   --graphite: oklch(0.4 0.005 270);
   --graphite-soft: oklch(0.55 0.005 270);
-  --forensic: oklch(0.55 0.18 25);
+  --forensic: oklch(0.4 0.18 25);
   --hairline: oklch(0.85 0.005 270);
 
   /* Type families */
